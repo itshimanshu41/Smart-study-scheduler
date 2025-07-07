@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Study Scheduler</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Smart Study Scheduler</h1>
+            <p>Organize your study tasks efficiently</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Task Form -->
+            <section class="task-form">
+                <h2>Add New Task</h2>
+                <form id="taskForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taskTitle">Task Title</label>
+                            <input type="text" id="taskTitle" name="taskTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select Subject</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Science">Science</option>
+                                <option value="English">English</option>
+                                <option value="History">History</option>
+                                <option value="Programming">Programming</option>
+                                <option value="Languages">Languages</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="difficulty">Difficulty Level</label>
+                            <select id="difficulty" name="difficulty" required>
+                                <option value="">Select Difficulty</option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority</label>
+                            <select id="priority" name="priority" required>
+                                <option value="">Select Priority</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dueDate">Due Date</label>
+                            <input type="date" id="dueDate" name="dueDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="estimatedTime">Estimated Time (hours)</label>
+                            <input type="number" id="estimatedTime" name="estimatedTime" min="0.5" max="24" step="0.5" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description (Optional)</label>
+                        <textarea id="description" name="description" rows="3" placeholder="Add any additional notes..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Add Task</button>
+                </form>
+            </section>
+
+            <!-- Filters -->
+            <section class="filters">
+                <h2>Filter Tasks</h2>
+                <div class="filter-controls">
+                    <div class="filter-group">
+                        <label for="filterSubject">Subject</label>
+                        <select id="filterSubject">
+                            <option value="">All Subjects</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Science">Science</option>
+                            <option value="English">English</option>
+                            <option value="History">History</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Languages">Languages</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterDifficulty">Difficulty</label>
+                        <select id="filterDifficulty">
+                            <option value="">All Difficulties</option>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterPriority">Priority</label>
+                        <select id="filterPriority">
+                            <option value="">All Priorities</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filterStatus">Status</label>
+                        <select id="filterStatus">
+                            <option value="">All Tasks</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <button id="clearFilters" class="btn btn-secondary">Clear Filters</button>
+                </div>
+            </section>
+
+            <!-- Task Statistics -->
+            <section class="stats">
+                <div class="stat-card">
+                    <h3 id="totalTasks">0</h3>
+                    <p>Total Tasks</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="pendingTasks">0</h3>
+                    <p>Pending</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="completedTasks">0</h3>
+                    <p>Completed</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalHours">0</h3>
+                    <p>Total Hours</p>
+                </div>
+            </section>
+
+            <!-- Task List -->
+            <section class="task-list">
+                <h2>Your Tasks</h2>
+                <div id="taskContainer">
+                    <div class="no-tasks">
+                        <p>No tasks added yet. Create your first task above!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
